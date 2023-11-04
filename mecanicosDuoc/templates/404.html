@@ -1,0 +1,48 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Error 404 - Página no encontrada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+      font-size: 36px;
+      margin-top: 50px;
+    }
+    p {
+      color: #666;
+      font-size: 18px;
+    }
+    .container {
+      margin-top: 100px;
+    }
+    .image {
+      margin-bottom: 20px;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="{% static 'core/img/logobueno.png'%}" alt="Error 404" class="image" style="height: 50px;">
+    <h3>Mecanicos Duoc</h3>
+    <h1>Error 404</h1>
+    <p>¡Oops! Parece que la página que buscas no se encuentra.</p>
+    <a href="{% url 'index'%}" class="button">Volver a la página principal</a>
+  </div>
+</body>
+</html>

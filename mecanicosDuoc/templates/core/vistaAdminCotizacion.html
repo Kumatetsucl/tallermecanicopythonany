@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="desktop mbr-site-loaded">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<link rel="shortcut icon" href="{% static 'core/img/logo-favicon.ico' %}" type="image/x-icon">
+	<meta name="description" content="">
+
+
+	<title>Mecanicos</title>
+	<link rel="stylesheet" href="{% static 'core/css/assets/style_icons.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/assets/tether.min.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/assets/bootstrap.min.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/assets/bootstrap-grid.min.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/assets/bootstrap-reboot.min.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/dropdown/style.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/animatecss/animate.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/formstyler/jquery.formstyler.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/formstyler/jquery.formstyler.theme.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/datepicker/jquery.datetimepicker.min.css'%}">
+	<link rel="stylesheet" href="{% static 'socicon/css/styles.css'%}">
+	<link rel="stylesheet" href="{% static 'theme/css/style.css'%}">
+	<link rel="preload" as="style" href="{% static 'mobirise/css/mbr-additional.css'%}">
+	<link rel="stylesheet" href="{% static 'mobirise/css/mbr-additional.css'%}" type="text/css">
+
+	<style type="text/css" id="operaUserStyle"></style>
+</head>
+
+<body>
+
+	<section class="menu menu1 cid-seJOMQZcpE" once="menu" id="menu1-0" data-sortbtn="btn-primary">
+		<nav class="navbar navbar-dropdown navbar-expand-lg">
+			<div class="container-fluid">
+				<div class="navbar-brand d-lg-none">
+					<span class="navbar-logo">
+						<a href="">
+							<img src="{% static 'core/img/logobueno.png' %}" alt="" style="height: 3rem;">
+						</a>
+					</span>
+					<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5"
+							href="#">Mecanicos</a></span>
+				</div>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<div class="hamburger">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</button>
+				<div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
+					<div class="navbar-brand d-lg-flex d-none">
+						<span class="navbar-logo">
+							<a href="{% url 'vistaAdminClientes' %}">
+								<img src="{% static 'core/img/logobueno.png' %}" alt="" style="height: 3rem;">
+							</a>
+						</span>
+						<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5"
+								href="{% url 'vistaAdminClientes' %}">Mecanicos</a></span>
+					</div>
+					<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+						<li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+							href="{% url 'vistaAdminVentas' %}">Ventas</a></li>
+						<li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+								href="{% url 'vistaAdminClientes' %}">Clientes</a>
+						</li>
+						<li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+								href="{% url 'vistaAdminProductos' %}">Productos</a></li>
+						<li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+								href="{% url 'vistaAdminCotizacion' %}">Cotizaciones</a></li>
+					</ul>
+					<h3>BIENVENIDO {{user.username | upper}}</h3>
+					<div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+
+						<div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4"
+								href="{% url 'logout' %}" id="modalbtn">
+								Cerrar Sesion</a></div>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</section>
+	<section class="align-items-center">
+		<div class="row-10 text-center">
+			<div class="col-12">
+				<h1>Historial de Cotizaciones</h1>
+				<table class="table" id="tablaCotizaciones">
+					<thead style="background-color: rgb(199, 63, 0); color: antiquewhite">
+						<tr>
+							<th scope="col">N° Cotizacion</th>
+							<th scope="col">Nombre Cliente</th>
+							<th scope="col">Telefono</th>
+							<th scope="col">Correo</th>
+							<th scope="col">Mensaje</th>
+							<th scope="col">Estado</th>
+							<th scope="col">Mod.</th>
+							<th scope="col">Del.</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for coti in cotizacion %}
+						<tr class="{% cycle 'bg-light text-dark' 'bg-white text-dark' %}">
+							<th scope="col">{{coti.id_cotizacion}}</th>
+							<td scope="col">{{coti.nombre}}</td>
+							<td scope="col">+56 {{coti.telefono}}</td>
+							<td scope="col">{{coti.correo}}</td>
+							<td scope="col">{{coti.mensaje}}</td>
+							<td scope="col">{{coti.estado}}</td>
+							<td scope="col">
+								<a href="{% url 'cotizacion_modificar' id_cotizacion=coti.id_cotizacion %}">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-pencil-square" viewBox="0 0 16 16">
+										<path
+											d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+										<path fill-rule="evenodd"
+											d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+									</svg>
+								</a>
+							</td>
+							<td scope="col">
+								<a href="{% url 'cotizacion_delete' id_cotizacion=coti.id_cotizacion %}">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-trash" viewBox="0 0 16 16">
+										<path
+											d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+										<path
+											d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+									</svg>
+								</a>
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+	<footer class="footer1 cid-seJPkxJz4T" once="footers" id="footer1-9" data-sortbtn="btn-primary">
+		<div class="container">
+			<div class="media-container-row">
+				<div class="footer-logo">
+					<a href="#" class="">
+						<img src="{% static 'core/img/logobueno.png'%}" alt="" style="width: 5rem;">
+					</a>
+				</div>
+				<p class="mbr-text mb-0 mbr-fonts-style row-copyright mbr-dark align-center display-7">
+					© 2023 Todos los derechos reservados para Nestor Carvacho y Felipe Arcos <br>Powered by Mobirise
+				</p>
+			</div>
+		</div>
+	</footer>
+
+
+	<script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'js/popper/popper.min.js' %}"></script>
+	<script src="{% static 'js/tether/tether.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/smoothscroll/smooth-scroll.js' %}"></script>
+	<script src="{% static 'js/dropdown/js/nav-dropdown.js' %}"></script>
+	<script src="{% static 'js/dropdown/js/navbar-dropdown.js' %}"></script>
+	<script src="{% static 'js/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+	<script src="{% static 'js/viewportchecker/jquery.viewportchecker.js' %}"></script>
+	<script src="{% static 'js/bootstrapcarouselswipe/bootstrap-carousel-swipe.js' %}"></script>
+	<script src="{% static 'js/mbr-clients-slider/mbr-clients-slider.js' %}"></script>
+	<script src="{% static 'js/mbr-testimonials-slider/mbr-testimonials-slider.js' %}"></script>
+	<script src="{% static 'js/formstyler/jquery.formstyler.js' %}"></script>
+	<script src="{% static 'js/formstyler/jquery.formstyler.min.js' %}"></script>
+	<script src="{% static 'js/datepicker/jquery.datetimepicker.full.js' %}"></script>
+	<script src="{% static 'js/theme/js/script.js' %}"></script>
+
+
+	<div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
+				class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+
+
+</body>
+
+</html>

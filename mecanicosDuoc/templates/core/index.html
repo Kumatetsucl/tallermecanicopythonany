@@ -1,0 +1,991 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="desktop mbr-site-loaded">
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<link rel="shortcut icon" href="{% static 'core/img/logo-favicon.ico' %}" type="image/x-icon">
+	<meta name="description" content="">
+
+
+	<title>Mecanicos</title>
+	<link rel="stylesheet" href="{% static 'core/css/assets/style_icons.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/assets/tether.min.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/assets/bootstrap.min.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/assets/bootstrap-grid.min.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/assets/bootstrap-reboot.min.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/dropdown/style.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/animatecss/animate.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/formstyler/jquery.formstyler.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/formstyler/jquery.formstyler.theme.css'%}">
+	<link rel="stylesheet" href="{% static 'core/css/datepicker/jquery.datetimepicker.min.css'%}">
+	<link rel="stylesheet" href="{% static 'socicon/css/styles.css'%}">
+	<link rel="stylesheet" href="{% static 'theme/css/style.css'%}">
+	<link rel="preload" as="style" href="{% static 'mobirise/css/mbr-additional.css'%}">
+	<link rel="stylesheet" href="{% static 'mobirise/css/mbr-additional.css'%}" type="text/css">
+
+	<style type="text/css" id="operaUserStyle"></style>
+</head>
+
+<body>
+
+	<section class="menu menu1 cid-seJOMQZcpE" once="menu" id="menu1-0" data-sortbtn="btn-primary">
+
+
+		<nav class="navbar navbar-dropdown navbar-expand-lg">
+			<div class="container-fluid">
+				<div class="navbar-brand d-lg-none">
+					<span class="navbar-logo">
+						<a href="{% url 'index'%}">
+							<img src="{% static 'core/img/logobueno.png' %}" alt="" style="height: 3rem;">
+						</a>
+					</span>
+					<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5"
+							href="{% url 'index'%}">Mecanicos</a></span>
+				</div>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<div class="hamburger">
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</button>
+				<div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
+					<div class="navbar-brand d-lg-flex d-none">
+						<span class="navbar-logo">
+							<a href="{% url 'index'%}">
+								<img src="{% static 'core/img/logobueno.png' %}" alt="" style="height: 3rem;">
+							</a>
+						</span>
+						<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5"
+								href="{% url 'index'%}">Mecanicos</a></span>
+					</div>
+					<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+						<li class="nav-item"><a class="nav-link link text-black mbr-semibold display-7"
+								href="{% url 'index'%}">
+								Home</a></li>
+
+						<li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+								href="#header2-3">Nosotros</a>
+						</li>
+						<li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+								href="#features2-4">Servicios</a></li>
+						<li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+								href="#slider1-7">Proyectos</a></li>
+						<li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+								href="#pricing-table3-5">Planes</a></li>
+						<li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+								href="{% url 'tienda'%}">Tienda</a></li>
+					</ul>
+					<div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+						{%csrf_token%}
+						<div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4"
+								href="{% url 'login' %}" id="modalbtn">
+								Iniciar Sesion</a></div>
+						{% if request.session.username %}
+						<form method="POST" action="{% url 'logout' %}">
+							{% csrf_token %}
+							<button type="submit" class="btn btn-danger mt-3">Cerrar sesión</button>
+						</form>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</nav>
+		<nav>
+			<div>
+				<div id="clima-actual" style="text-align: center"></div>
+			</div>
+		</nav>
+	</section>
+
+	<section class="header4 cid-seJOXzeKSh mbr-fullscreen" id="header4-2" data-sortbtn="btn-primary">
+
+
+
+		<div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(0, 0, 0);"></div>
+
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+				<div class="col-12 col-lg-8">
+					<div class="text-wrapper">
+
+						<h1 class="mbr-section-title mbr-fonts-style align-center mbr-white display-1">
+							<strong>Mecanicos&nbsp;</strong><strong>DUOC</strong>
+						</h1>
+						<p class="mbr-section-subtitle mbr-fonts-style align-center mbr-white display-5">
+							<em>Al servicio de la comunidad</em><br>
+						</p>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="header2 cid-seJOXWQ7ps" id="header2-3" data-sortbtn="btn-primary">
+
+
+
+
+
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+				<div class="col-12 col-lg-6 image-wrapper">
+					<div class="mbr-img-wrap">
+						<img src="{% static 'core/img/mecanica.jpg' %}" alt="" class="">
+					</div>
+				</div>
+				<div class="col-12 col-lg-6">
+					<div class="text-wrapper">
+						<p class="mbr-fonts-style mbr-section-tag display-7">NOSOTROS</p>
+						<h1 class="mbr-section-title mbr-fonts-style mbr-white display-2"><strong>Quienes Somos</strong>
+						</h1>
+						<p class="mbr-section-subtitle mbr-fonts-style mbr-white display-5"><em>Bienvenidos a nuestro
+								taller
+								mecánico de estudiantes egresados.</em><br></p>
+						<p class="mbr-section-text mbr-fonts-style mbr-white display-7">Somos un grupo de jóvenes
+							entusiastas de la mecánica
+							automotriz, graduados de la Escuela Técnica de Automotores. Con nuestra amplia experiencia
+							en el campo de la mecánica, decidimos unirnos y crear este taller con el objetivo de brindar
+							un servicio de alta calidad a nuestros clientes.<br>Nuestro equipo está formado por
+							profesionales altamente capacitados y dedicados, que trabajan incansablemente para
+							garantizar la satisfacción de nuestros clientes. Nos enorgullece ofrecer servicios de
+							mantenimiento, reparación y diagnóstico de vehículos de todas las marcas y
+							modelos.<br><br>¡Gracias por confiar en nosotros para el cuidado de tu vehículo! Te
+							invitamos a visitarnos en nuestro taller y descubrir por qué somos la mejor opción en
+							mecánica automotriz.<br></p>
+						<div class="mbr-section-bottom">
+
+
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="features2 cid-seJP4HheyG" id="features2-4" data-sortbtn="btn-primary">
+
+
+		<div class="container">
+			<div class="row justify-content-between">
+				<div class="col-md-12 col-lg-4">
+					<div class="text-wrapper">
+						<p class="mbr-fonts-style mbr-section-tag display-7">SERVICIOS</p>
+						<h2 class="mbr-section-title mbr-fonts-style display-2"><strong>
+								<font color="#000000">Nuestros Servicio</font>
+							</strong></h2>
+						<p class="mbr-fonts-style mbr-section-subtitle display-5"><em>Revisa los servicios
+								proporcionados por Mecanicos Duoc</em><br></p>
+
+						<div class="mbr-section-btn"><a class="btn btn-secondary display-4"
+								href="#form2-c">Contactenos</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-12 col-lg-6 icons-wrap justify-content-center mt-5 mt-lg-0">
+					<div class="d-flex flex-wrap w-100">
+						<div class="w-50 flex-column icon-wrap px-lg-4 px-xl-5">
+							<img src="{% static 'core/img/logobueno.png'%}" alt="" style="width: 100px;">
+							<h2 class="mbr-icon-title mbr-fonts-style align-left display-5"><strong>Mantenimiento
+								</strong>
+								<div><strong>Preventivo</strong></div>
+							</h2>
+							<p class="mbr-icon-text mbr-fonts-style align-left m-0 display-7">esto incluye el cambio
+								regular de aceite y filtros, la revisión
+								del sistema de frenos, la inspección del sistema de
+								suspensión y dirección, la
+								revisión del sistema eléctrico y electrónico.</p>
+						</div>
+						<div class="w-50 flex-column icon-wrap px-lg-4 px-xl-5">
+							<img src="{% static 'core/img/logobueno.png'%}" alt="" style="width: 100px;">
+							<h2 class="mbr-icon-title mbr-fonts-style align-left display-5"><strong>Mantenimiento
+								</strong>
+								<div><strong>Programado</strong></div>
+							</h2>
+							<p class="mbr-icon-text mbr-fonts-style align-left m-0 display-7">Protege tu inversión con
+								el servicio de mantenimiento
+								programado. Llevamos el taller a tu casa ahorrando tiempo y dinero.</p>
+						</div>
+						<div class="w-50 flex-column icon-wrap px-lg-4 px-xl-5">
+							<img src="{% static 'core/img/logobueno.png'%}" alt="" style="width: 100px;">
+							<h2 class="mbr-icon-title mbr-fonts-style align-left display-5"><strong>Reprogramación
+								</strong>
+								<div><strong>ECU</strong></div>
+							</h2>
+							<p class="mbr-icon-text mbr-fonts-style align-left m-0 display-7">Mayor potencia y torque,
+								reducción del consumo de combustible.
+								Cotiza nuestro nuevo servicio a domicilio para remapeo electrónico.</p>
+						</div>
+						<div class="w-50 flex-column icon-wrap px-lg-4 px-xl-5">
+							<img src="{% static 'core/img/logobueno.png'%}" alt="" style="width: 100px;">
+							<h2 class="mbr-icon-title mbr-fonts-style align-left display-5"><strong>Servicio
+									de Frenos</strong></h2>
+							<p class="mbr-icon-text mbr-fonts-style align-left m-0 display-7">Llámanos para revisar tu
+								sistema de frenos, si la luz de
+								freno del tablero está encendido, se siente un chirrido o vibración al frenar.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="slider1 clients cid-seJPdBs3BA" data-interval="false" id="slider1-7" data-sortbtn="btn-primary">
+
+
+
+
+
+
+		<div class="container mbr-content">
+			<div class="row">
+				<div class="col-12">
+					<p class="mbr-section-tag mbr-fonts-style display-7">PROJECTOS</p>
+					<h3 class="mbr-section-title figure mbr-fonts-style w-100 display-2">
+						<strong>Nuestros&nbsp;</strong><strong>Proyectos</strong>
+					</h3>
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="carousel slide" role="listbox" data-pause="true" data-keyboard="false" data-ride="carousel"
+				data-interval="4000" id="slider1-7-carousel">
+				<ol class="carousel-indicators">
+					<li data-slide-to="0" class="" data-target="#slider1-7-carousel">
+						<svg class="qodef-svg-circle">
+							<circle cx="50%" cy="50%" r="45%"></circle>
+						</svg>
+					</li>
+					<li data-slide-to="1" data-target="#slider1-7-carousel" class="active"><svg
+							class="qodef-svg-circle">
+							<circle cx="50%" cy="50%" r="45%"></circle>
+						</svg></li>
+					<li data-slide-to="2" data-target="#slider1-7-carousel" class=""><svg class="qodef-svg-circle">
+							<circle cx="50%" cy="50%" r="45%"></circle>
+						</svg></li>
+					<li data-slide-to="3" data-target="#slider1-7-carousel" class=""><svg class="qodef-svg-circle">
+							<circle cx="50%" cy="50%" r="45%"></circle>
+						</svg></li>
+					<li data-slide-to="4" data-target="#slider1-7-carousel" class=""><svg class="qodef-svg-circle">
+							<circle cx="50%" cy="50%" r="45%"></circle>
+						</svg></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				</ol>
+				<div class="slider-clients">
+					<div class="carousel-inner slides3" data-visible="3">
+
+
+
+
+
+						<div class="carousel-item active">
+							<div class="media-container-row">
+								<div class="col-md-12 col-lg-4">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto1.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Diagnóstico
+														y resolución de problemas</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices utilizan herramientas y equipos especializados para
+													diagnosticar y solucionar problemas mecánicos en los vehículos. </p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-4 cloneditem-1 clonedCol" data-cloned-index="1">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto2.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicio</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5">
+													<strong>Mantenimiento preventivo</strong>
+												</h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices realizan tareas de mantenimiento regular en los
+													vehículos, como cambios de aceite, filtros de aire y combustible, y
+													revisión de fluidos.</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-4 cloneditem-2 clonedCol" data-cloned-index="2">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto3.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Reparación y
+														reemplazo de piezas</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices desmontan, reparan y reemplazan las piezas dañadas o
+													desgastadas en los vehículos.</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="media-container-row">
+								<div class="col-md-12 col-lg-4">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto2.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5">
+													<strong>Mantenimiento preventivo</strong>
+												</h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices realizan tareas de mantenimiento regular en los
+													vehículos, como cambios de aceite, filtros de aire y combustible, y
+													revisión de fluidos</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-4 cloneditem-1 clonedCol" data-cloned-index="2">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto3.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Reparación y
+														reemplazo de piezas</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices desmontan, reparan y reemplazan las piezas dañadas o
+													desgastadas en los vehículos.</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-4 cloneditem-2 clonedCol" data-cloned-index="3">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto4.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Ajustes y
+														configuraciones</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices realizan ajustes y configuraciones en los sistemas del
+													vehículo para asegurarse de que funcionen correctamente.</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="media-container-row">
+								<div class="col-md-12 col-lg-4">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto3.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Reparación y
+														reemplazo de piezas</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices desmontan, reparan y reemplazan las piezas dañadas o
+													desgastadas en los vehículos.</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-4 cloneditem-1 clonedCol" data-cloned-index="3">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto4.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Ajustes y
+														configuraciones</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices realizan ajustes y configuraciones en los sistemas del
+													vehículo para asegurarse de que funcionen correctamente.</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-4 cloneditem-2 clonedCol" data-cloned-index="4">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto5.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Pruebas y
+														análisis de rendimiento</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices realizan pruebas y análisis para evaluar el rendimiento
+													de los vehículos después de una reparación o servicio.</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="media-container-row">
+								<div class="col-md-12 col-lg-4">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto4.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Ajustes y
+														configuraciones</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices realizan ajustes y configuraciones en los sistemas del
+													vehículo para asegurarse de que funcionen correctamente.</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-4 cloneditem-1 clonedCol" data-cloned-index="4">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto5.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Pruebas y
+														análisis de rendimiento</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices realizan pruebas y análisis para evaluar el rendimiento
+													de los vehículos después de una reparación o servicio.</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-4 cloneditem-2 clonedCol" data-cloned-index="0">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto1.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Diagnóstico
+														y resolución de problemas</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices utilizan herramientas y equipos especializados para
+													diagnosticar y solucionar problemas mecánicos en los vehículos. </p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="media-container-row">
+								<div class="col-md-12 col-lg-4">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto5.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Pruebas y
+														análisis de rendimiento</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices realizan pruebas y análisis para evaluar el rendimiento
+													de los vehículos después de una reparación o servicio.</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-4 cloneditem-1 clonedCol" data-cloned-index="0">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto1.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5"><strong>Diagnóstico
+														y resolución de problemas</strong></h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices utilizan herramientas y equipos especializados para
+													diagnosticar y solucionar problemas mecánicos en los vehículos. </p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-4 cloneditem-2 clonedCol" data-cloned-index="1">
+									<div class="wrap-img">
+										<div class="slider__image">
+											<img src="{% static 'core/img/proyecto2.jpg'%}" alt="" title="" class="">
+										</div>
+										<div class="slider__content">
+											<div class="slider__content-wrap">
+												<p class="slider__subtitle mbr-fonts-style mb-0 display-7"><a
+														href="#form2-c" class="text-info">Servicios</a></p>
+												<h5 class="slider__title mbr-fonts-style display-5">
+													<strong>Mantenimiento preventivo</strong>
+												</h5>
+												<p class="slider__text mbr-fonts-style display-7">Los mecánicos
+													automotrices realizan tareas de mantenimiento regular en los
+													vehículos, como cambios de aceite, filtros de aire y combustible, y
+													revisión de fluidos.</p>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<section class="pricing-table3 cid-seJP8eG0YQ" id="pricing-table3-5" data-sortbtn="btn-primary">
+
+
+
+		<div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(79, 73, 67);">
+		</div>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-10 col-lg-6 main-head align-center mbr-white my-5 my-lg-0">
+					<h3 class="mbr-section-tag mbr-fonts-style mbr-lighter display-7">
+						PLANES</h3>
+					<h2 class="mbr-section-title main-title mbr-fonts-style pb-2 display-1">
+						<strong>Servicios </strong><strong>Extras</strong>
+					</h2>
+					<p class="mbr-text main-text mbr-fonts-style mbr-lighter pb-4 m-0 display-5"><em>Cotiza el mejor
+							Plan de Mantenimiento para tu vehiculo
+
+						</em><br></p>
+					<div class="mbr-section-btn main-btn">
+						<a href="#form2-c" class="btn btn-secondary display-4">
+							Cotizar
+						</a>
+					</div>
+				</div>
+				<div class="col-md-10 col-lg-6">
+					<div class="row items-row justify-content-center">
+						<div class="table first-table col-md-6 align-left two-items">
+							<div class="table-wrapper">
+								<div class="table-head-wrapper">
+									<span class="table-heading mbr-section-title mbr-fonts-style mbr-bold display-5">
+										BASICO
+									</span>
+									<div class="table-purchase">
+										<span class="pricing-value mbr-fonts-style display-5"><strong>
+												$ 3 UF
+											</strong></span>
+										<h3 class="mbr-text table-pricing mbr-fonts-style mbr-lighter display-7">
+											Desde</h3>
+									</div>
+								</div>
+								<ul class="list-group mbr-fonts-style mbr-lighter display-7">
+									<li class="">Mantenimientos Trimestrales Gratis</li>
+									<li class="">10% dcto Alumnos Duoc</li>
+									<li class="">30% dcto Servicio Grua</li>
+									<li class="">40% dcto Cambio de Aceite</li>
+								</ul>
+								<div class="mbr-section-btn align-center pt-4"><a href="#form2-c"
+										class="btn btn-secondary display-4">Contratar</a></div>
+							</div>
+						</div>
+
+						<div class="table second-table col-md-6 align-left">
+							<div class="table-wrapper">
+								<div class="table-head-wrapper">
+									<span
+										class="table-heading mbr-section-title mbr-fonts-style mbr-bold mbr-white display-5">PREMIUM</span>
+									<div class="table-purchase mbr-white">
+										<span class="pricing-value mbr-fonts-style display-5"><strong>
+												$ 5 UF
+											</strong></span>
+										<h3 class="mbr-text table-pricing mbr-fonts-style mbr-lighter display-7">
+											Desde</h3>
+									</div>
+								</div>
+								<ul class="list-group mbr-fonts-style mbr-lighter display-7">
+									<li class="">Mantenimientos Bimestrales Gratis</li>
+									<li class="">75% dcto Alumnos Duoc</li>
+									<li class="">90% dcto Servicio Grua</li>
+									<li class="">80% dcto Cambio de Aceite</li>
+									<div class="mbr-section-btn align-center pt-4">
+										<a href="#form2-c" class="btn btn-primary display-4">Contratar</a>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="carousel slide testimonials1 testimonials-slider cid-seJPibdak0" id="testimonials1-8"
+		data-sortbtn="btn-primary">
+
+
+
+
+
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-md-12 col-lg-12 mb-5">
+					<h1 class="mbr-section-title align-center mbr-fonts-style display-2"><strong>Reseñas de
+							Clientes</strong></h1>
+
+
+				</div>
+			</div>
+
+			<div class="row justify-content-center">
+				<div role="listbox" class="carousel slide col-12 col-lg-10" data-ride="carousel" data-interval="6000"
+					id="testimonials1-8-carousel">
+					<ol class="carousel-indicators">
+						<li data-slide-to="0" class="active" data-target="#testimonials1-8-carousel">
+							<svg class="qodef-svg-circle">
+								<circle cx="50%" cy="50%" r="45%"></circle>
+							</svg>
+						</li>
+						<li data-slide-to="1" data-target="#testimonials1-8-carousel" class=""><svg
+								class="qodef-svg-circle">
+								<circle cx="50%" cy="50%" r="45%"></circle>
+							</svg></li>
+						<li data-slide-to="2" data-target="#testimonials1-8-carousel" class=""><svg
+								class="qodef-svg-circle">
+								<circle cx="50%" cy="50%" r="45%"></circle>
+							</svg></li>
+						<li data-slide-to="3" data-target="#testimonials1-8-carousel" class=""><svg
+								class="qodef-svg-circle">
+								<circle cx="50%" cy="50%" r="45%"></circle>
+							</svg></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					</ol>
+					<div class="carousel-inner">
+
+
+
+
+						<div class="carousel-item active">
+							<div class="col-md-12 col-lg-12">
+								<div class="author-box w-100">
+									<div class="author">
+										<p class="mbr-card-text mt-0 align-left mbr-fonts-style box display-5">
+											<em>Excelente servicio y atención al cliente. Llevé mi automóvil al taller
+												de Mecánicos Expertos y quedé impresionada con el profesionalismo de su
+												equipo. El mecánico asignado, Juan, fue muy minucioso al diagnosticar y
+												resolver el problema con mi sistema de frenos. ¡Mi coche ahora se siente
+												como nuevo! Definitivamente recomendaré a Mecánicos Expertos a mis
+												amigos y colegas. ¡Gracias por su excelente trabajo!</em>
+										</p>
+										<h3
+											class="mbr-semibold mbr-carg-auhtor mbr-fonts-style align-left my-0 display-7">
+											<strong>María Fernández</strong>
+										</h3>
+										<h4 class="mbr-semibold mbr-fonts-style mbr-carg-tag align-left my-0 display-7">
+											Abogada</h4>
+									</div>
+
+
+								</div>
+
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="col-md-12 col-lg-12">
+								<div class="author-box w-100">
+									<div class="author">
+										<p class="mbr-card-text mt-0 align-left mbr-fonts-style box display-5"><em>Como
+												arquitecto, la puntualidad y el cumplimiento de plazos son fundamentales
+												para mí. Por eso, me complace decir que Mecánicos Rápidos cumplió todas
+												mis expectativas. Llevé mi vehículo para un cambio de aceite y filtro, y
+												el servicio fue rápido y eficiente. Además, el personal fue amable y me
+												explicaron cada paso del proceso. Sin duda, volveré a confiar en ellos
+												para futuros servicios..</em></p>
+										<h3
+											class="mbr-semibold mbr-carg-auhtor mbr-fonts-style align-left my-0 display-7">
+											<strong>Pedro Sánchez</strong>
+										</h3>
+										<h4 class="mbr-semibold mbr-fonts-style mbr-carg-tag align-left my-0 display-7">
+											Arquitecto</h4>
+									</div>
+
+
+								</div>
+
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="col-md-12 col-lg-12">
+								<div class="author-box w-100">
+									<div class="author">
+										<p class="mbr-card-text mt-0 align-left mbr-fonts-style box display-5"><em>Como
+												profesora, necesito un automóvil confiable para llegar a mi trabajo a
+												tiempo. Acudí a Mecánicos de Confianza porque mi coche tenía problemas
+												de encendido. El equipo de mecánicos fue muy atento y diligente en la
+												reparación. Fueron capaces de identificar y resolver rápidamente el
+												problema con mi sistema de encendido. Ahora mi automóvil arranca sin
+												problemas. Estoy muy satisfecha con el servicio y lo recomendaré a mis
+												compañeros de trabajo.</em></p>
+										<h3
+											class="mbr-semibold mbr-carg-auhtor mbr-fonts-style align-left my-0 display-7">
+											<strong>Laura Gómez</strong>
+										</h3>
+										<h4 class="mbr-semibold mbr-fonts-style mbr-carg-tag align-left my-0 display-7">
+											Profesora</h4>
+									</div>
+
+
+								</div>
+
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="col-md-12 col-lg-12">
+								<div class="author-box w-100">
+									<div class="author">
+										<p class="mbr-card-text mt-0 align-left mbr-fonts-style box display-5"><em>Como
+												empresario, mi tiempo es valioso, y necesito un taller de mecánica que
+												sea eficiente y confiable. En Mecánicos de Élite encontré exactamente
+												eso. Llevé mi vehículo para una revisión general y me sorprendió lo
+												rápido que completaron el trabajo sin comprometer la calidad. Además, el
+												personal fue amable y me brindaron recomendaciones útiles para el
+												mantenimiento preventivo. Recomiendo encarecidamente a Mecánicos de
+												Élite para cualquier servicio automotriz.</em></p>
+										<h3
+											class="mbr-semibold mbr-carg-auhtor mbr-fonts-style align-left my-0 display-7">
+											<strong>Carlos Martínez</strong>
+										</h3>
+										<h4 class="mbr-semibold mbr-fonts-style mbr-carg-tag align-left my-0 display-7">
+											Empresario</h4>
+									</div>
+
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<section class="form2 cid-seK4nIpU4L" id="form2-c" data-sortbtn="btn-primary">
+
+
+		<div class="container">
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6 pr-lg-5">
+					<div class="text-wrapper">
+						<p class="mbr-fonts-style mbr-section-tag display-7">CONTACTO</p>
+						<h2 class="mbr-section-title mbr-fonts-style w-100 display-2"><strong>¡Reserva tu hora!
+							</strong><br><strong>Cotiza con Nosotros</strong></h2>
+						<p class="mbr-fonts-style mbr-section-subtitle w-100 display-5"><em>Se atendidos por los Mejores
+								Mecánicos</em><br></p>
+						<p class="mbr-text mbr-fonts-style display-7">Tendrás tu Vehiculo como nuevo <br></p>
+
+					</div>
+				</div>
+				<div class="col-12 col-lg-6 my-5 my-lg-0 mbr-form">
+
+					<div>
+
+						<form method="POST" data-rcpha_sitekey="" data-rcpha_secretkey=""
+							class="mbr-form form-with-styler">
+							{% csrf_token %}
+							<div class="">
+
+								<div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+									Oops...! some
+									problem!</div>
+							</div>
+							<div class="dragArea mx-0">
+								<div class="w-100 form-group" data-for="nombre">
+									<input type="txt" name="nombre" placeholder="Ingrese su nombre"
+										data-form-field="name" class="form-control display-5" value="" id="nombre" onchange="contadorNombre()">
+								</div>
+								<span id="errorNombre" style="color: brown;"></span>
+								<div class="w-100 form-group" data-for="email">
+									<input type="email" name="correo" placeholder="Ingrese su Email"
+										data-form-field="email" class="form-control display-5" value="" id="correo" onchange="contadorCorreo()">
+								</div>
+								<span id="errorCorreo" style="color: brown;"></span>
+								<div class="w-100 form-group" data-for="rut">
+									<input type="txt" name="rut" placeholder="Ingrese su Rut" data-form-field="rut"
+										class="form-control display-5" value="" id="rut" onchange="Rut()">
+								</div>
+								<span id="errorRut" style="color: brown;"></span>
+
+								<div data-for="telefono" class="w-100 form-group">
+									<input type="text" name="telefono" placeholder="Ingrese su teléfono"
+										data-form-field="phone" class="form-control display-5" value="" id="telefono"
+										onchange="contadorCelular()">
+								</div>
+								<span id="errorCelular" style="color: brown;"></span>
+
+
+
+								<div data-for="mensaje" class="w-100 form-group form-group-message">
+									<textarea name="mensaje" placeholder="Ingrese su mensaje" data-form-field="message"
+										class="form-control display-5" value="" id="mensaje"></textarea>
+								</div>
+								<div class="mbr-section-btn align-center px-0"><button type="submit"
+										class="btn btn-primary m-0 display-4">Enviar</button></div>
+								{% if saved %}
+								<script>
+									alert('¡La cotización se ha Enviado correctamente!');
+								</script>
+								{% endif %}
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<footer class="footer1 cid-seJPkxJz4T" once="footers" id="footer1-9" data-sortbtn="btn-primary">
+		<div class="container">
+			<div class="media-container-row">
+				<div class="footer-logo">
+					<a href="#" class="">
+						<img src="{% static 'core/img/logobueno.png'%}" alt="" style="width: 5rem;">
+					</a>
+				</div>
+				<p class="mbr-text mb-0 mbr-fonts-style row-copyright mbr-dark align-center display-7">
+					© 2023 Todos los derechos reservados para Nestor Carvacho y Felipe Arcos <br>Powered by Mobirise
+				</p>
+			</div>
+		</div>
+	</footer>
+
+
+	<script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'js/popper/popper.min.js' %}"></script>
+	<script src="{% static 'js/tether/tether.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/smoothscroll/smooth-scroll.js' %}"></script>
+	<script src="{% static 'js/dropdown/js/nav-dropdown.js' %}"></script>
+	<script src="{% static 'js/dropdown/js/navbar-dropdown.js' %}"></script>
+	<script src="{% static 'js/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+	<script src="{% static 'js/viewportchecker/jquery.viewportchecker.js' %}"></script>
+	<script src="{% static 'js/bootstrapcarouselswipe/bootstrap-carousel-swipe.js' %}"></script>
+	<script src="{% static 'js/mbr-clients-slider/mbr-clients-slider.js' %}"></script>
+	<script src="{% static 'js/mbr-testimonials-slider/mbr-testimonials-slider.js' %}"></script>
+	<script src="{% static 'js/formstyler/jquery.formstyler.js' %}"></script>
+	<script src="{% static 'js/formstyler/jquery.formstyler.min.js' %}"></script>
+	<script src="{% static 'js/datepicker/jquery.datetimepicker.full.js' %}"></script>
+	<script src="{% static 'js/theme/js/script.js' %}"></script>
+	<script src="{% static 'core/js/ApiCLimaLibreApi.js' %}"></script>
+	<script src="{% static 'core/js/validaciones.js' %}"></script>
+	<script src="{% static 'core/js/validadorRut.js' %}"></script>
+
+
+	<div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
+				class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+
+
+</body>
+
+</html>

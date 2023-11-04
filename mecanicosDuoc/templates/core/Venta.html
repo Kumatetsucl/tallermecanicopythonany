@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="desktop mbr-site-loaded">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="{% static 'core/img/logo-favicon.ico' %}" type="image/x-icon">
+    <meta name="description" content="">
+
+
+    <title>Mecanicos</title>
+    <link rel="stylesheet" href="{% static 'core/css/assets/style_icons.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/assets/tether.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/assets/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/assets/bootstrap-grid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/assets/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/dropdown/style.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/animatecss/animate.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/formstyler/jquery.formstyler.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/formstyler/jquery.formstyler.theme.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/datepicker/jquery.datetimepicker.min.css'%}">
+    <link rel="stylesheet" href="{% static 'socicon/css/styles.css'%}">
+    <link rel="stylesheet" href="{% static 'theme/css/style.css'%}">
+    <link rel="preload" as="style" href="{% static 'mobirise/css/mbr-additional.css'%}">
+    <link rel="stylesheet" href="{% static 'mobirise/css/mbr-additional.css'%}" type="text/css">
+
+    <style type="text/css" id="operaUserStyle"></style>
+</head>
+
+<body>
+    {% csrf_token %}
+    <section class="menu menu1 cid-seJOMQZcpE" once="menu" id="menu1-0" data-sortbtn="btn-primary">
+
+
+        <nav class="navbar navbar-dropdown navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="navbar-brand d-lg-none">
+                    <span class="navbar-logo">
+                        <a href="">
+                            <img src="{% static 'core/img/logobueno.png' %}" alt="" style="height: 3rem;">
+                        </a>
+                    </span>
+                    <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5"
+                            href="#">Mecanicos</a></span>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
+                    <div class="navbar-brand d-lg-flex d-none">
+                        <span class="navbar-logo">
+                            <a href="#">
+                                <img src="{% static 'core/img/logobueno.png' %}" alt="" style="height: 3rem;">
+                            </a>
+                        </span>
+                        <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5"
+                                href="#">Mecanicos</a></span>
+                    </div>
+                    <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                        <li class="nav-item"><a class="nav-link link text-black mbr-semibold display-7" href="#">
+                                Home</a></li>
+
+                        <li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+                                href="#header2-3">Nosotros</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+                                href="#features2-4">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+                                href="#slider1-7">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+                                href="#pricing-table3-5">Precios</a></li>
+                        <li class="nav-item"><a class="nav-link link text-black mbr-semibold text-primary display-7"
+                                href="{% url 'tiendaLogeado'%}">Tienda</a></li>
+                    </ul>
+                    <h3>Bienvenido {{user.username | upper}}</h3>
+                    <div class="d-flex align-items-center justify-content-center flex-column flex-sm-row">
+
+                        <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4"
+                                href="{% url 'logout' %}" id="modalbtn">
+                                Cerrar Sesion</a></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav>
+            <div>
+                <div id="clima-actual" style="text-align: center"></div>
+            </div>
+        </nav>
+    </section>
+
+
+    <section class="align-items-center">
+        <div class="row-10 text-center">
+            <div class="col-12">
+                <div class="row justify-content-md-center">
+                    <div class="col-12">
+                        <h1>Detalla Venta</h1>
+                    </div>
+                    <div class="col-sm-9">
+                        <div>
+                            <h3>Listado de Productos</h3>
+                        </div>
+                        <table class="table" id="tablaProductos">
+                            <thead style="background-color: rgb(199, 63, 0); color: antiquewhite">
+                                <tr>
+                                    <th scope="col">Prodcuto</th>
+                                    <th scope="col">cantidad</th>
+                                    <th scope="col">Precio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for key, values in request.session.carrito.items %}
+                                <tr class="{% cycle 'bg-light text-dark' 'bg-white text-dark' %}">
+                                    <td>{{ values.nombre }}</td>
+                                    <td>{{ values.Cantidad }}</td>
+                                    <td>$ {{ values.Precio }}</td>
+
+                                </tr>
+
+                                {% endfor %}
+                                <tr>
+                                    <td></td>
+                                    <td>total a pagar</td>
+                                    <td>$ {{total_carrito}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-3">
+                        <div>
+                            <h3>Confirmar Compra</h3>
+                        </div>
+                        <div>
+                            <a class="btn btn-success display-4"><form method="POST" action="{% url 'guardarCompra' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-success">Pagar</button>
+                            </form></a>
+
+                            <a class="btn btn-primary display-4" href="{% url 'tiendaLogeado' %}">Vover</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer1 cid-seJPkxJz4T" once="footers" id="footer1-9" data-sortbtn="btn-primary">
+        <div class="container">
+            <div class="media-container-row">
+                <div class="footer-logo">
+                    <a href="#" class="">
+                        <img src="{% static 'core/img/logobueno.png'%}" alt="" style="width: 5rem;">
+                    </a>
+                </div>
+                <p class="mbr-text mb-0 mbr-fonts-style row-copyright mbr-dark align-center display-7">
+                    © 2023 Todos los derechos reservados para Nestor Carvacho y Felipe Arcos <br>Powered by Mobirise
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper/popper.min.js' %}"></script>
+    <script src="{% static 'js/tether/tether.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/smoothscroll/smooth-scroll.js' %}"></script>
+    <script src="{% static 'js/dropdown/js/nav-dropdown.js' %}"></script>
+    <script src="{% static 'js/dropdown/js/navbar-dropdown.js' %}"></script>
+    <script src="{% static 'js/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+    <script src="{% static 'js/viewportchecker/jquery.viewportchecker.js' %}"></script>
+    <script src="{% static 'js/bootstrapcarouselswipe/bootstrap-carousel-swipe.js' %}"></script>
+    <script src="{% static 'js/mbr-clients-slider/mbr-clients-slider.js' %}"></script>
+    <script src="{% static 'js/mbr-testimonials-slider/mbr-testimonials-slider.js' %}"></script>
+    <script src="{% static 'js/formstyler/jquery.formstyler.js' %}"></script>
+    <script src="{% static 'js/formstyler/jquery.formstyler.min.js' %}"></script>
+    <script src="{% static 'js/datepicker/jquery.datetimepicker.full.js' %}"></script>
+    <script src="{% static 'js/theme/js/script.js' %}"></script>
+    <script src="{% static 'core/js/ApiCLimaLibreApi.js' %}"></script>
+
+
+    <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
+                class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+
+
+</body>
+
+</html>

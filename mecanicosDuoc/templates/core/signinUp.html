@@ -1,0 +1,247 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="{% static 'core/img/logo-favicon.ico' %}" type="image/x-icon">
+    <meta name="description" content="">
+
+
+    <title>Mecanicos</title>
+    <link rel="stylesheet" href="{% static 'core/css/assets/formulario.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/assets/style_icons.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/assets/tether.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/assets/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/assets/bootstrap-grid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/assets/bootstrap-reboot.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/dropdown/style.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/animatecss/animate.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/formstyler/jquery.formstyler.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/formstyler/jquery.formstyler.theme.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/datepicker/jquery.datetimepicker.min.css'%}">
+    <link rel="stylesheet" href="{% static 'socicon/css/styles.css'%}">
+    <link rel="stylesheet" href="{% static 'theme/css/style.css'%}">
+    <link rel="preload" as="style" href="{% static 'mobirise/css/mbr-additional.css'%}">
+    <link rel="stylesheet" href="{% static 'mobirise/css/mbr-additional.css'%}" type="text/css">
+
+    <style type="text/css" id="operaUserStyle"></style>
+</head>
+
+<body>
+
+    <section class="menu menu1 cid-seJOMQZcpE" once="menu" id="menu1-0" data-sortbtn="btn-primary">
+
+
+        <nav class="navbar navbar-dropdown navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="navbar-brand d-lg-none">
+                    <span class="navbar-logo">
+                        <a href="">
+                            <img src="{% static 'core/img/logobueno.png' %}" alt="" style="height: 3rem;">
+                        </a>
+                    </span>
+                    <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5"
+                            href="#">Mecanicos</a></span>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between w-100" id="navbarSupportedContent">
+                    <div class="navbar-brand d-lg-flex d-none">
+                        <span class="navbar-logo">
+                            <a href="#">
+                                <img src="{% static 'core/img/logobueno.png' %}" alt="" style="height: 3rem;">
+                            </a>
+                        </span>
+                        <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-5"
+                                href="{% url 'index'%}">Mecanicos</a></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <section class="form2 cid-seK4nIpU4L" id="form2-c" data-sortbtn="btn-primary">
+
+
+        <div class="container">
+            <div class="row mt-4">
+
+                <div class="col-12 col-lg-6 my-5 my-lg-0 mbr-form">
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <!-- {{ form.as_p }} -->
+                        <!-- <div class="username">
+                            <label for="username">Nombre de usuario</label>
+                            <input type="text" name="username">
+                          </div>
+
+                        <div class="first-name">
+                            <label for="first-name">Nombre</label>
+                            <input type="text" name="first_name">
+                        </div>
+
+                        <div class="last-name">
+                            <label for="last-name">Apellidos</label>
+                            <input type="text" name="last_name">
+                        </div>
+
+                        <div class="email">
+                            <label for="email">Correo</label>
+                            <input type="email" name="email">
+                        </div>
+
+                        <div class="password">
+                            <label for="password1">Password</label>
+                            <input type="password" name="password1">
+                        </div>
+                        <div class="password">
+                            <label for="password2">Confirmar Password</label>
+                            <input type="password" name="password2">
+                        </div>
+                        <button type="submit">Crear usuario</button> -->
+
+                        <div class="login-root">
+                            <div class="box-root flex-flex flex-direction--column"
+                                style="min-height: 100vh;flex-grow: 1;">
+                                <div class="loginbackground box-background--white padding-top--64">
+                                    <div class="loginbackground-gridContainer">
+                                        <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+                                            <div class="box-root"
+                                                style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+                                            </div>
+                                        </div>
+                                        <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+                                            <div class="box-root box-divider--light-all-2 animationLeftRight tans3s"
+                                                style="flex-grow: 1;"></div>
+                                        </div>
+                                        <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+                                            <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+                                        </div>
+                                        <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+                                            <div class="box-root box-background--blue animationLeftRight"
+                                                style="flex-grow: 1;"></div>
+                                        </div>
+                                        <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+                                            <div class="box-root box-background--gray100 animationLeftRight tans3s"
+                                                style="flex-grow: 1;"></div>
+                                        </div>
+                                        <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+                                            <div class="box-root box-background--cyan200 animationRightLeft tans4s"
+                                                style="flex-grow: 1;"></div>
+                                        </div>
+                                        <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+                                            <div class="box-root box-background--blue animationRightLeft"
+                                                style="flex-grow: 1;"></div>
+                                        </div>
+                                        <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+                                            <div class="box-root box-background--gray100 animationRightLeft tans4s"
+                                                style="flex-grow: 1;"></div>
+                                        </div>
+                                        <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+                                            <div class="box-root box-divider--light-all-2 animationRightLeft tans3s"
+                                                style="flex-grow: 1;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-root padding-top--24 flex-flex flex-direction--column"
+                                    style="flex-grow: 1; z-index: 9;">
+                                    <div
+                                        class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+                                        <h1><a href="{% url 'login'%}" rel="dofollow">Mecanicos Duoc</a>
+                                        </h1>
+                                    </div>
+                                    <div class="formbg-outer">
+                                        <div class="formbg">
+                                            <div class="formbg-inner padding-horizontal--48">
+                                                <span class="padding-bottom--15">Crea una cuenta</span>
+                                                <form id="stripe-login">
+                                                    <div class="field padding-bottom--24">
+                                                        <label for="username">nombre de usuario</label>
+                                                        <input type="txt" name="username">
+                                                    </div>
+                                                    <div class="field padding-bottom--24">
+                                                        <label for="first_name">Nombre</label>
+                                                        <input type="txt" name="first_name">
+                                                    </div>
+                                                    <div class="field padding-bottom--24">
+                                                        <label for="last_name">Apellido</label>
+                                                        <input type="txt" name="last_name">
+                                                    </div>
+                                                    <div class="field padding-bottom--24">
+                                                        <label for="email">Correo Electronico</label>
+                                                        <input type="txt" name="email">
+                                                    </div>
+                                                    <div class="field padding-bottom--24">
+                                                        <div class="grid--50-50">
+                                                            <label for="password1">Contraseña</label>
+                                                        </div>
+                                                        <input type="password" name="password1">
+                                                    </div>
+                                                    <div class="field padding-bottom--24">
+                                                        <div class="grid--50-50">
+                                                            <label for="password2">Confirmar Contraseña</label>
+                                                        </div>
+                                                        <input type="password" name="password2">
+                                                    </div>
+                                                    <div class="field padding-bottom--24">
+                                                        <input type="submit" name="submit" value="Iniciar Sesion">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="footer-link padding-top--24">
+                                            <span>¿Ya tienes una cuenta? <a href="{% url 'login'%}">Iniciar Sesion</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer1 cid-seJPkxJz4T" once="footers" id="footer1-9" data-sortbtn="btn-primary">
+        <div class="container">
+            <div class="media-container-row">
+                <div class="footer-logo">
+                    <a href="#" class="">
+                        <img src="{% static 'core/img/logobueno.png'%}" alt="" style="width: 5rem;">
+                    </a>
+                </div>
+                <p class="mbr-text mb-0 mbr-fonts-style row-copyright mbr-dark align-center display-7">
+                    © 2023 Todos los derechos reservados para Nestor Carvacho y Felipe Arcos <br>Powered by Mobirise
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper/popper.min.js' %}"></script>
+    <script src="{% static 'js/tether/tether.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/smoothscroll/smooth-scroll.js' %}"></script>
+    <script src="{% static 'js/dropdown/js/nav-dropdown.js' %}"></script>
+    <script src="{% static 'js/dropdown/js/navbar-dropdown.js' %}"></script>
+    <script src="{% static 'js/touchswipe/jquery.touch-swipe.min.js' %}"></script>
+    <script src="{% static 'js/viewportchecker/jquery.viewportchecker.js' %}"></script>
+    <script src="{% static 'js/bootstrapcarouselswipe/bootstrap-carousel-swipe.js' %}"></script>
+    <script src="{% static 'js/mbr-clients-slider/mbr-clients-slider.js' %}"></script>
+    <script src="{% static 'js/mbr-testimonials-slider/mbr-testimonials-slider.js' %}"></script>
+    <script src="{% static 'js/formstyler/jquery.formstyler.js' %}"></script>
+    <script src="{% static 'js/formstyler/jquery.formstyler.min.js' %}"></script>
+    <script src="{% static 'js/datepicker/jquery.datetimepicker.full.js' %}"></script>
+    <script src="{% static 'js/theme/js/script.js' %}"></script>
+</body>
+
+</html>

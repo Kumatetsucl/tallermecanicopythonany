@@ -1,0 +1,74 @@
+<div class="alert alert-primary" role="alert">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="row" colspan="5" class="text-cantrer" style="width: 3px; font-size: smaller;">
+                    CARRITO
+                </th>
+            </tr>
+            <tr>
+                <th scope="col-1" style="width: 3px; font-size: smaller;">NOMBRE</th>
+                <th scope="col-1" style="width: 3px; font-size: smaller;">PRECIO</th>
+                <th scope="col-1" style="width: 3px; font-size: smaller;">CANTIDAD</th>
+                <th scope="col-1" style="width: 3px; font-size: smaller;">Agregar</th>
+                <th scope="col-1" style="width: 3px; font-size: smaller;">Quitar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <style>
+                .small-button {
+                    font-size: smaller;
+                    padding: 3px 5px;
+                    border-radius: 100%;
+                }
+            </style>
+            {% if request.session.carrito.items %}
+                {% for key, values in request.session.carrito.items %}
+                    <tr>
+                        <td scope="col" style="width: 3px; font-size: smaller;">{{ values.nombre }}</td>
+                        <td scope="col" style="width: 3px; font-size: smaller;">{{ values.Precio }}</td>
+                        <td scope="col" style="width: 3px; font-size: smaller;">{{ values.Cantidad }}</td>
+                        <td scope="col" style="width: 3px; font-size: smaller;">
+                            <a href="{% url 'Add' values.id_producto %}" class="badge btn small-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
+                                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                                  </svg>
+                            </a>
+                        </td>
+                        <td scope="col">
+                            <a href="{% url 'Sub' values.id_producto %}" class="badge btn small-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                                  </svg>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5">
+                            <div class="alert alert-danger text-center">
+                                <p style="color: cadetblue;">Sin Productos</p>
+                            </div>
+                        </td>
+                    </tr>
+                {% endif %}
+                <tr>
+                    <th scope="row">Total:</th>
+                    <td colspan="2">$
+                        {{ total_carrito }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr></div>
+        <div class="row text-center" colspan="5">
+            <div colspan="2">
+                <a href="{% url 'Cls' %}" class="btn btn-danger">Limpiar</a>
+            </div>
+            <div colspan="2">
+                <a href="{% url 'guardarCompra' %}" class="btn btn-success">Pagar</a>
+            </div>
+
+        </div>
